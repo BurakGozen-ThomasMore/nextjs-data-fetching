@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 
-export default async function NosStoreEample() {
+export default async function NoStoreExample() {
   cookies(); // headers() // unstable_noStore()
 
   return (
