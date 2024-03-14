@@ -3,6 +3,7 @@ import { TodoSchema } from "@/app/todos/_lib/todo-validation";
 import { kv } from "@vercel/kv";
 import { revalidatePath } from "next/cache";
 import { Button } from "./button";
+import { CreateButton } from "./create-button";
 
 async function createTodo() {
   "use server";
@@ -39,16 +40,14 @@ export default async function RedisExample() {
   return (
     <main className="p-10">
       <div className="flex justify-between">
-        <Button action={createTodo} className="text-blue-500">
-          Create Todo
-        </Button>
+        <CreateButton className="text-blue-500">Create Todo</CreateButton>
 
         <Button action={deleteAllTodos} className="text-red-500">
           Delete All Todos
         </Button>
       </div>
 
-      <TodoList title="Todo" items={todos?.filter((todo) => !todo.completed) || []} />
+      <TodoList title="Todo" items={todos || []} />
     </main>
   );
 }

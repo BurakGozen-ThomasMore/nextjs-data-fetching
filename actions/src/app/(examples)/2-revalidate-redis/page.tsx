@@ -9,7 +9,7 @@ export default async function RedisExample() {
 
   return (
     <main className="p-10">
-      <TodoList title="Todo" items={todos?.filter((todo) => !todo.completed) || []} />
+      <TodoList title="Todo" items={todos || []} />
     </main>
   );
 }

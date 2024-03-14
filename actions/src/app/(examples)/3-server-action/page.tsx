@@ -51,7 +51,7 @@ export default async function RedisExample() {
         </form>
       </div>
 
-      <TodoList title="Todo" items={todos?.filter((todo) => !todo.completed) || []} />
+      <TodoList title="Todo" items={todos || []} />
     </main>
   );
 }

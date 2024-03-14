@@ -11,9 +11,11 @@ async function createTodo(formData: FormData) {
   const newTodo: TodoSchema = {
     id: todos ? todos.length + 1 : 1,
     title: formData.get("title") as string,
-    completed: !!formData.get("completed"),
+    completed: formData.get("completed") === "on",
     userId: Number(formData.get("userId")),
   };
+
+  console.log(newTodo);
 
   await kv.set("todos", [newTodo, ...(todos || [])]);
 
@@ -48,7 +50,7 @@ export default async function RedisExample() {
         </button>
       </form>
 
-      <TodoList items={todos?.filter((todo) => !todo.completed) || []} />
+      <TodoList items={todos || []} />
     </main>
   );
 }
