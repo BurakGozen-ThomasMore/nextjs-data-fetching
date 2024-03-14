@@ -3,7 +3,7 @@ import { z } from "zod";
 export const todoSchema = z.object({
   userId: z.number(),
   id: z.number(),
-  title: z.string(),
+  title: z.string().min(10).max(100),
   completed: z.boolean(),
 });
 
