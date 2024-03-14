@@ -1,1 +1,1 @@
-# nextjs-data-fetching
+# Next.js Data Fetching
